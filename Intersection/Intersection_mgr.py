@@ -3,10 +3,10 @@ from cv2 import aruco
 import intersection as intersection
 
 # OpenCV Camera Feed
-cap = cv2.VideoCapture("rtsp://192.168.1.2:554/axis-media/media.amp") 
-#cap = cv2.VideoCapture(0)
+#cap = cv2.VideoCapture("rtsp://192.168.1.2:554/axis-media/media.amp") 
+cap = cv2.VideoCapture(0)
 
-show_Video = False
+show_Video = True
 
 intersection_1 = intersection.Intersection([1,2,3,4])
 intersection_2 = intersection.Intersection([91,92,93,94])
@@ -17,6 +17,7 @@ def main(args=None):
         try:
             hasFrame, frame = cap.read()
                     # Detect markers
+            print(intersection_1.intersectionMonitor(frame = frame), intersection_2.intersectionMonitor(frame))
 
             if show_Video:
                 markerCorners, markerIds, rejectedCandidates = aruco.detectMarkers(frame, aruco.Dictionary_get(aruco.DICT_6X6_250), parameters=aruco.DetectorParameters_create())
@@ -30,7 +31,6 @@ def main(args=None):
 
 
             #TODO check and publish intersection status
-            print(intersection_1.intersectionMonitor(frame), intersection_2.intersectionMonitor(frame))
 
         except (Exception, KeyboardInterrupt, SystemExit):
             cv2.destroyAllWindows()
