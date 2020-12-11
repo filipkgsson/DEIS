@@ -109,7 +109,7 @@ class MinimalPublisher(Node):
 
     def __init__(self):
         super().__init__('minimal_publisher')
-        self.publisher_ = self.create_publisher(IntList, 'topic', 10)
+        self.publisher_ = self.create_publisher(IntList, 'intersection', 10)
 
         
     def publish_Status(self, status):
