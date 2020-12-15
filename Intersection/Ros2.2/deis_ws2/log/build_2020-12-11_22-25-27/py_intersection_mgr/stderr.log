@@ -1,0 +1,5 @@
+  File "/home/ubuntu/deis_ws2/install/py_intersection_mgr/lib/python3.8/site-packages/py_intersection_mgr/intersection_mgr.py", line 248
+    minimal_publisher.publish_Status([intersection_1.get_Status(image,  markerCorners, markerIds),0)
+                                                                                                   ^
+SyntaxError: closing parenthesis ')' does not match opening parenthesis '['
+

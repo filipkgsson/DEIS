@@ -1,0 +1,29 @@
+[1.062s] Invoking command in '/home/ubuntu/deis_ws2/src/py_intersection_mgr': AMENT_PREFIX_PATH=/home/ubuntu/deis_ws/install/custom_interfaces:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/ubuntu/deis_ws/install/custom_interfaces:${CMAKE_PREFIX_PATH} LD_LIBRARY_PATH=/home/ubuntu/deis_ws/install/custom_interfaces/lib:${LD_LIBRARY_PATH} PYTHONPATH=/home/ubuntu/deis_ws2/install/py_intersection_mgr/lib/python3.8/site-packages:/home/ubuntu/deis_ws/install/custom_interfaces/lib/python3.8/site-packages:${PYTHONPATH} /usr/bin/python3 setup.py egg_info --egg-base ../../build/py_intersection_mgr build --build-base /home/ubuntu/deis_ws2/build/py_intersection_mgr/build install --prefix /home/ubuntu/deis_ws2/install/py_intersection_mgr --record /home/ubuntu/deis_ws2/build/py_intersection_mgr/install.log --single-version-externally-managed
+[1.955s] running egg_info
+[1.958s] writing ../../build/py_intersection_mgr/py_intersection_mgr.egg-info/PKG-INFO
+[1.959s] writing dependency_links to ../../build/py_intersection_mgr/py_intersection_mgr.egg-info/dependency_links.txt
+[1.960s] writing entry points to ../../build/py_intersection_mgr/py_intersection_mgr.egg-info/entry_points.txt
+[1.961s] writing requirements to ../../build/py_intersection_mgr/py_intersection_mgr.egg-info/requires.txt
+[1.962s] writing top-level names to ../../build/py_intersection_mgr/py_intersection_mgr.egg-info/top_level.txt
+[2.104s] reading manifest file '../../build/py_intersection_mgr/py_intersection_mgr.egg-info/SOURCES.txt'
+[2.109s] writing manifest file '../../build/py_intersection_mgr/py_intersection_mgr.egg-info/SOURCES.txt'
+[2.110s] running build
+[2.111s] running build_py
+[2.112s] copying py_intersection_mgr/intersection_mgr.py -> /home/ubuntu/deis_ws2/build/py_intersection_mgr/build/lib/py_intersection_mgr
+[2.114s] running install
+[2.117s] running install_lib
+[2.122s] copying /home/ubuntu/deis_ws2/build/py_intersection_mgr/build/lib/py_intersection_mgr/intersection_mgr.py -> /home/ubuntu/deis_ws2/install/py_intersection_mgr/lib/python3.8/site-packages/py_intersection_mgr
+[2.126s] byte-compiling /home/ubuntu/deis_ws2/install/py_intersection_mgr/lib/python3.8/site-packages/py_intersection_mgr/intersection_mgr.py to intersection_mgr.cpython-38.pyc
+[2.132s]   File "/home/ubuntu/deis_ws2/install/py_intersection_mgr/lib/python3.8/site-packages/py_intersection_mgr/intersection_mgr.py", line 95
+[2.133s]     if self.no_ref && 94 in markerIds:
+[2.134s]                     ^
+[2.134s] SyntaxError: invalid syntax
+[2.135s] 
+[2.136s] running install_data
+[2.136s] running install_egg_info
+[2.149s] removing '/home/ubuntu/deis_ws2/install/py_intersection_mgr/lib/python3.8/site-packages/py_intersection_mgr-0.0.0-py3.8.egg-info' (and everything under it)
+[2.150s] Copying ../../build/py_intersection_mgr/py_intersection_mgr.egg-info to /home/ubuntu/deis_ws2/install/py_intersection_mgr/lib/python3.8/site-packages/py_intersection_mgr-0.0.0-py3.8.egg-info
+[2.155s] running install_scripts
+[2.232s] Installing intersection script to /home/ubuntu/deis_ws2/install/py_intersection_mgr/lib/py_intersection_mgr
+[2.234s] writing list of installed files to '/home/ubuntu/deis_ws2/build/py_intersection_mgr/install.log'
+[2.343s] Invoked command in '/home/ubuntu/deis_ws2/src/py_intersection_mgr' returned '0': AMENT_PREFIX_PATH=/home/ubuntu/deis_ws/install/custom_interfaces:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/ubuntu/deis_ws/install/custom_interfaces:${CMAKE_PREFIX_PATH} LD_LIBRARY_PATH=/home/ubuntu/deis_ws/install/custom_interfaces/lib:${LD_LIBRARY_PATH} PYTHONPATH=/home/ubuntu/deis_ws2/install/py_intersection_mgr/lib/python3.8/site-packages:/home/ubuntu/deis_ws/install/custom_interfaces/lib/python3.8/site-packages:${PYTHONPATH} /usr/bin/python3 setup.py egg_info --egg-base ../../build/py_intersection_mgr build --build-base /home/ubuntu/deis_ws2/build/py_intersection_mgr/build install --prefix /home/ubuntu/deis_ws2/install/py_intersection_mgr --record /home/ubuntu/deis_ws2/build/py_intersection_mgr/install.log --single-version-externally-managed

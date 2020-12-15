@@ -1,0 +1,27 @@
+running egg_info
+writing ../../build/py_intersection_mgr/py_intersection_mgr.egg-info/PKG-INFO
+writing dependency_links to ../../build/py_intersection_mgr/py_intersection_mgr.egg-info/dependency_links.txt
+writing entry points to ../../build/py_intersection_mgr/py_intersection_mgr.egg-info/entry_points.txt
+writing requirements to ../../build/py_intersection_mgr/py_intersection_mgr.egg-info/requires.txt
+writing top-level names to ../../build/py_intersection_mgr/py_intersection_mgr.egg-info/top_level.txt
+reading manifest file '../../build/py_intersection_mgr/py_intersection_mgr.egg-info/SOURCES.txt'
+writing manifest file '../../build/py_intersection_mgr/py_intersection_mgr.egg-info/SOURCES.txt'
+running build
+running build_py
+copying py_intersection_mgr/intersection_mgr.py -> /home/ubuntu/deis_ws/build/py_intersection_mgr/build/lib/py_intersection_mgr
+running install
+running install_lib
+copying /home/ubuntu/deis_ws/build/py_intersection_mgr/build/lib/py_intersection_mgr/intersection_mgr.py -> /home/ubuntu/deis_ws/install/py_intersection_mgr/lib/python3.8/site-packages/py_intersection_mgr
+byte-compiling /home/ubuntu/deis_ws/install/py_intersection_mgr/lib/python3.8/site-packages/py_intersection_mgr/intersection_mgr.py to intersection_mgr.cpython-38.pyc
+  File "/home/ubuntu/deis_ws/install/py_intersection_mgr/lib/python3.8/site-packages/py_intersection_mgr/intersection_mgr.py", line 108
+    if markerIds not None:
+                     ^
+SyntaxError: invalid syntax
+
+running install_data
+running install_egg_info
+removing '/home/ubuntu/deis_ws/install/py_intersection_mgr/lib/python3.8/site-packages/py_intersection_mgr-0.0.0-py3.8.egg-info' (and everything under it)
+Copying ../../build/py_intersection_mgr/py_intersection_mgr.egg-info to /home/ubuntu/deis_ws/install/py_intersection_mgr/lib/python3.8/site-packages/py_intersection_mgr-0.0.0-py3.8.egg-info
+running install_scripts
+Installing intersection script to /home/ubuntu/deis_ws/install/py_intersection_mgr/lib/py_intersection_mgr
+writing list of installed files to '/home/ubuntu/deis_ws/build/py_intersection_mgr/install.log'

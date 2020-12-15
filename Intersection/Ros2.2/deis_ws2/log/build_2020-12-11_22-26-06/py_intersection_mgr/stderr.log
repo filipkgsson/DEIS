@@ -1,0 +1,5 @@
+  File "/home/ubuntu/deis_ws2/install/py_intersection_mgr/lib/python3.8/site-packages/py_intersection_mgr/intersection_mgr.py", line 255
+    except (Exception, KeyboardInterrupt, SystemExit):
+    ^
+SyntaxError: invalid syntax
+

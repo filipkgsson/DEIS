@@ -15,6 +15,10 @@
 import rclpy
 from rclpy.node import Node
 from custom_interfaces.msg import IntList
+from custom_interfaces.msg import Int
+
+from std_msgs.msg import String
+
 
 import cv2
 from cv2 import aruco
@@ -23,22 +27,28 @@ import numpy as np
 # OpenCV Camera Feed
 cap = cv2.VideoCapture("rtsp://192.168.1.2:554/axis-media/media.amp") 
 
+go = [1,1]
 class Intersection:
-    def __init__(self, corners, dictionary = aruco.Dictionary_get(aruco.DICT_6X6_250) ):
+    def __init__(self, corners, id,
+                noise_threshold = 1,
+                dictionary = aruco.Dictionary_get(aruco.DICT_6X6_250),
+                roi_size = 170,
+                ):
         self.ids = corners
-
+        self.id = id
         # ArUco dictionary and default detector parameters
-        self.dictionary = aruco.Dictionary_get(aruco.DICT_6X6_250)
+        self.dictionary = dictionary#aruco.Dictionary_get(aruco.DICT_6X6_250)
         self.parameters = aruco.DetectorParameters_create()
 
-        self.roi_size = 200
+        self.roi_size = roi_size
         self.roi_shape = np.array([[0.0,0.0],[self.roi_size, 0.0],[ 0.0,self.roi_size],[self.roi_size, self.roi_size]])
 
-        self.noise_threshold = 1
+        self.noise_threshold = noise_threshold
 
-        self.show_Image = False
         self.no_ref = True
         self.ref = 0
+        self.band_size = 150
+        
 
     def get_cornerPoint(self, ids, id, corners):
         index = np.squeeze(np.where(ids == id))
@@ -46,11 +56,12 @@ class Intersection:
         return point
 
 
-    def get_Status(self, frame):
+    def get_Status(self, frame, markerCorners, markerIds):
         # detect all markers
-        markerCorners, markerIds, rejectedCandidates = aruco.detectMarkers(frame, self.dictionary, parameters=self.parameters)
+        #markerCorners, markerIds, rejectedCandidates = aruco.detectMarkers(frame, self.dictionary, parameters=self.parameters)
 
-        
+        global go 
+
         if markerIds is None:
             print('Markers not detected')
             return -1
@@ -68,8 +79,6 @@ class Intersection:
             # Get homography and warp image feed into roi
             h, status = cv2.findHomography(roi_corners, self.roi_shape)
             roi = cv2.warpPerspective(frame, h, (self.roi_size,self.roi_size))
-            if self.show_Image:
-                cv2.imshow("Region of interest raw", roi)
 
             # Reduce ROI to binary 2D matrix
             (thresh, roi) = cv2.threshold(roi, 127, 255, cv2.THRESH_BINARY)
@@ -87,13 +96,36 @@ class Intersection:
                 diff = cv2.subtract(self.ref, roi)
 
                 if np.average(diff) < self.noise_threshold:
+                    #minimal_publisher2.publish_Status(1)
+                    go[self.id] = 1
                     return 0
                 else:
-                    return 1
 
-                if self.show_Image:
-                    cv2.imshow("Region of interest", roi)
-                    cv2.imshow('Detected Objects', diff)
+                    color = (0, 0, 0) 
+                    frame = cv2.rectangle(frame, tuple(roi_corners[0]-65), tuple(roi_corners[3]+65), color, -1) 
+                    # print(roi_corners)
+                    roi_corners[0] = [roi_corners[0][0] - self.band_size, roi_corners[0][1] - self.band_size]
+                    roi_corners[1] = [roi_corners[1][0] + self.band_size, roi_corners[1][1] - self.band_size]
+                    roi_corners[2] = [roi_corners[2][0] - self.band_size, roi_corners[2][1] + self.band_size]
+                    roi_corners[3] = [roi_corners[3][0] + self.band_size, roi_corners[3][1] + self.band_size]
+
+                    # Get homography and warp image feed into roi
+                    h, status = cv2.findHomography(roi_corners, self.roi_shape)
+                    roi2 = cv2.warpPerspective(frame, h, (self.roi_size,self.roi_size))
+                    markerCorners, markerIds, rejectedCandidates = aruco.detectMarkers(roi2, self.dictionary, parameters=self.parameters)
+                                            
+
+                    if markerIds is not None:
+                        #print(markerIds)
+                        if 42 in markerIds:
+                            print('stop')
+                            go[self.id] = 0
+                            #minimal_publisher2.publish_Status(0)
+
+
+
+                    return 1
+                    
 
         else:
             print('Not all markers detected')
@@ -104,44 +136,86 @@ class MinimalPublisher(Node):
 
     def __init__(self):
         super().__init__('minimal_publisher')
-        self.publisher_ = self.create_publisher(IntList, 'topic', 10)
-        # timer_period = 0.05  # seconds
-        # self.timer = self.create_timer(timer_period, self.timer_callback)
-        # self.i = 0
+        self.publisher_ = self.create_publisher(IntList, 'intersection', 10)
 
-    # def timer_callback(self):
-    #     msg = String()
-    #     msg.data = '%d' % get_status()
-    #     self.publisher_.publish(msg)
-    #     #self.get_logger().info('"%s"' % msg.data)
-    #     self.i += 1
-
-    def timer_callback(self, vals):
+        
+    def publish_Status(self, status):
         msg = IntList()
-        msg.data = vals#('%d,%d' % i1,i2)
+        msg.data = status
         self.publisher_.publish(msg)
-        self.get_logger().info('"%s"' % msg.data)
-        #self.i += 1
+        print(status)
+        #self.get_logger().info('"%s"' % msg.data)
+
+
+# class MinimalPublisher2(Node):
+
+#     def __init__(self):
+#         super().__init__('minimal_publisher')
+#         self.publisher_ = self.create_publisher(Int, 'i42', 10)
+
+        
+#     def publish_Status(self, status):
+#         msg = Int()
+#         msg.data = status
+#         self.publisher_.publish(msg)
+#         print(status)
+#         #self.get_logger().info('"%s"' % msg.data)
+
+class MinimalPublisher2(Node):
+
+    def __init__(self):
+        super().__init__('minimal_publisher')
+        self.publisher_ = self.create_publisher(String, 'i42', 10)
+
+        
+    def publish_Status(self, status):
+        msg = String()
+        msg.data = '%d' % status
+        self.publisher_.publish(msg)
+        print(status)
+        #self.get_logger().info('"%s"' % msg.data)
+
+        
+
+
 
 def main(args=None):
+
+    # Initialize Node
     rclpy.init(args=args)
+    global minimal_publisher2
+    global go 
 
+    # Initialize Publisher
     minimal_publisher = MinimalPublisher()
+    minimal_publisher2 = MinimalPublisher2()
 
-    intersection_1 = Intersection([1,2,3,4])       
-    intersection_2 = Intersection([91,92,93,94])       
+    # Initialize intersections
+    intersection_1 = Intersection([1,2,3,4],0)       
+    intersection_2 = Intersection([91,92,93,94],1)       
 
-    #rclpy.spin(minimal_publisher)
+    dictionary = aruco.Dictionary_get(aruco.DICT_6X6_250)
+    parameters = aruco.DetectorParameters_create()
+
+    # Read new frame
     while cv2.waitKey(1) < 0:
         try:
+            # Get frame 
             hasFrame, frame = cap.read()
 
-            minimal_publisher.timer_callback([intersection_1.get_Status(frame), intersection_2.get_Status(frame)])
+            markerCorners, markerIds, rejectedCandidates = aruco.detectMarkers(frame, dictionary, parameters=parameters)
+            # Check intersections and publish stated
+            minimal_publisher.publish_Status([intersection_1.get_Status(frame,  markerCorners, markerIds), intersection_2.get_Status(frame,  markerCorners, markerIds)])
+
+            #minimal_publisher.publish_Status([intersection_1.get_Status(frame,  markerCorners, markerIds), 0])
+            if 0 in go:
+                minimal_publisher2.publish_Status(0)
+            else:
+                minimal_publisher2.publish_Status(1)
+
         except (Exception, KeyboardInterrupt, SystemExit):
             cv2.destroyAllWindows()
             raise
-
-
 
 
     # Destroy the node explicitly

@@ -1,0 +1,30 @@
+[1.045s] Invoking command in '/home/ubuntu/deis_ws/src/py_intersection_mgr': PYTHONPATH=/home/ubuntu/deis_ws/install/py_intersection_mgr/lib/python3.8/site-packages:/home/ubuntu/deis_ws/install/custom_interfaces/lib/python3.8/site-packages:/home/ubuntu/deis_ws/install/py_intersection_mgr/lib/python3.8/site-packages:/opt/ros/foxy/lib/python3.8/site-packages /usr/bin/python3 setup.py egg_info --egg-base ../../build/py_intersection_mgr build --build-base /home/ubuntu/deis_ws/build/py_intersection_mgr/build install --prefix /home/ubuntu/deis_ws/install/py_intersection_mgr --record /home/ubuntu/deis_ws/build/py_intersection_mgr/install.log --single-version-externally-managed
+[1.916s] running egg_info
+[1.919s] writing ../../build/py_intersection_mgr/py_intersection_mgr.egg-info/PKG-INFO
+[1.921s] writing dependency_links to ../../build/py_intersection_mgr/py_intersection_mgr.egg-info/dependency_links.txt
+[1.922s] writing entry points to ../../build/py_intersection_mgr/py_intersection_mgr.egg-info/entry_points.txt
+[1.923s] writing requirements to ../../build/py_intersection_mgr/py_intersection_mgr.egg-info/requires.txt
+[1.925s] writing top-level names to ../../build/py_intersection_mgr/py_intersection_mgr.egg-info/top_level.txt
+[2.068s] reading manifest file '../../build/py_intersection_mgr/py_intersection_mgr.egg-info/SOURCES.txt'
+[2.073s] writing manifest file '../../build/py_intersection_mgr/py_intersection_mgr.egg-info/SOURCES.txt'
+[2.074s] running build
+[2.075s] running build_py
+[2.076s] copying py_intersection_mgr/intersection_mgr.py -> /home/ubuntu/deis_ws/build/py_intersection_mgr/build/lib/py_intersection_mgr
+[2.077s] running install
+[2.081s] running install_lib
+[2.087s] copying /home/ubuntu/deis_ws/build/py_intersection_mgr/build/lib/py_intersection_mgr/intersection_mgr.py -> /home/ubuntu/deis_ws/install/py_intersection_mgr/lib/python3.8/site-packages/py_intersection_mgr
+[2.090s] byte-compiling /home/ubuntu/deis_ws/install/py_intersection_mgr/lib/python3.8/site-packages/py_intersection_mgr/intersection_mgr.py to intersection_mgr.cpython-38.pyc
+[2.098s]   File "/home/ubuntu/deis_ws/install/py_intersection_mgr/lib/python3.8/site-packages/py_intersection_mgr/intersection_mgr.py", line 213
+[2.099s]     else
+[2.100s]        ^
+[2.101s] SyntaxError: invalid syntax
+[2.102s] 
+[2.107s] byte-compiling /home/ubuntu/deis_ws/install/py_intersection_mgr/lib/python3.8/site-packages/py_intersection_mgr/intersection_mgr copy.py to intersection_mgr copy.cpython-38.pyc
+[2.108s] running install_data
+[2.114s] running install_egg_info
+[2.116s] removing '/home/ubuntu/deis_ws/install/py_intersection_mgr/lib/python3.8/site-packages/py_intersection_mgr-0.0.0-py3.8.egg-info' (and everything under it)
+[2.119s] Copying ../../build/py_intersection_mgr/py_intersection_mgr.egg-info to /home/ubuntu/deis_ws/install/py_intersection_mgr/lib/python3.8/site-packages/py_intersection_mgr-0.0.0-py3.8.egg-info
+[2.128s] running install_scripts
+[2.208s] Installing intersection script to /home/ubuntu/deis_ws/install/py_intersection_mgr/lib/py_intersection_mgr
+[2.210s] writing list of installed files to '/home/ubuntu/deis_ws/build/py_intersection_mgr/install.log'
+[2.314s] Invoked command in '/home/ubuntu/deis_ws/src/py_intersection_mgr' returned '0': PYTHONPATH=/home/ubuntu/deis_ws/install/py_intersection_mgr/lib/python3.8/site-packages:/home/ubuntu/deis_ws/install/custom_interfaces/lib/python3.8/site-packages:/home/ubuntu/deis_ws/install/py_intersection_mgr/lib/python3.8/site-packages:/opt/ros/foxy/lib/python3.8/site-packages /usr/bin/python3 setup.py egg_info --egg-base ../../build/py_intersection_mgr build --build-base /home/ubuntu/deis_ws/build/py_intersection_mgr/build install --prefix /home/ubuntu/deis_ws/install/py_intersection_mgr --record /home/ubuntu/deis_ws/build/py_intersection_mgr/install.log --single-version-externally-managed

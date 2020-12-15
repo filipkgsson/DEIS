@@ -1,0 +1,4 @@
+[0.000000] (-) TimerEvent: {}
+[0.001227] (-) JobUnselected: {'identifier': 'custom_interfaces'}
+[0.001702] (-) JobUnselected: {'identifier': 'py_intersection_mgr'}
+[0.003447] (-) EventReactorShutdown: {}

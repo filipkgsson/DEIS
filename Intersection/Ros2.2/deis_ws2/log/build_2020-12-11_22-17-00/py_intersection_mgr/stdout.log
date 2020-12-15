@@ -1,0 +1,38 @@
+running egg_info
+creating ../../build/py_intersection_mgr/py_intersection_mgr.egg-info
+writing ../../build/py_intersection_mgr/py_intersection_mgr.egg-info/PKG-INFO
+writing dependency_links to ../../build/py_intersection_mgr/py_intersection_mgr.egg-info/dependency_links.txt
+writing entry points to ../../build/py_intersection_mgr/py_intersection_mgr.egg-info/entry_points.txt
+writing requirements to ../../build/py_intersection_mgr/py_intersection_mgr.egg-info/requires.txt
+writing top-level names to ../../build/py_intersection_mgr/py_intersection_mgr.egg-info/top_level.txt
+writing manifest file '../../build/py_intersection_mgr/py_intersection_mgr.egg-info/SOURCES.txt'
+reading manifest file '../../build/py_intersection_mgr/py_intersection_mgr.egg-info/SOURCES.txt'
+writing manifest file '../../build/py_intersection_mgr/py_intersection_mgr.egg-info/SOURCES.txt'
+running build
+running build_py
+creating /home/ubuntu/deis_ws/build/py_intersection_mgr/build
+creating /home/ubuntu/deis_ws/build/py_intersection_mgr/build/lib
+creating /home/ubuntu/deis_ws/build/py_intersection_mgr/build/lib/py_intersection_mgr
+copying py_intersection_mgr/intersection_mgr.py -> /home/ubuntu/deis_ws/build/py_intersection_mgr/build/lib/py_intersection_mgr
+copying py_intersection_mgr/intersection_mgr copy.py -> /home/ubuntu/deis_ws/build/py_intersection_mgr/build/lib/py_intersection_mgr
+copying py_intersection_mgr/__init__.py -> /home/ubuntu/deis_ws/build/py_intersection_mgr/build/lib/py_intersection_mgr
+running install
+running install_lib
+creating /home/ubuntu/deis_ws/install/py_intersection_mgr/lib/python3.8/site-packages/py_intersection_mgr
+copying /home/ubuntu/deis_ws/build/py_intersection_mgr/build/lib/py_intersection_mgr/intersection_mgr.py -> /home/ubuntu/deis_ws/install/py_intersection_mgr/lib/python3.8/site-packages/py_intersection_mgr
+copying /home/ubuntu/deis_ws/build/py_intersection_mgr/build/lib/py_intersection_mgr/intersection_mgr copy.py -> /home/ubuntu/deis_ws/install/py_intersection_mgr/lib/python3.8/site-packages/py_intersection_mgr
+copying /home/ubuntu/deis_ws/build/py_intersection_mgr/build/lib/py_intersection_mgr/__init__.py -> /home/ubuntu/deis_ws/install/py_intersection_mgr/lib/python3.8/site-packages/py_intersection_mgr
+byte-compiling /home/ubuntu/deis_ws/install/py_intersection_mgr/lib/python3.8/site-packages/py_intersection_mgr/intersection_mgr.py to intersection_mgr.cpython-38.pyc
+byte-compiling /home/ubuntu/deis_ws/install/py_intersection_mgr/lib/python3.8/site-packages/py_intersection_mgr/intersection_mgr copy.py to intersection_mgr copy.cpython-38.pyc
+byte-compiling /home/ubuntu/deis_ws/install/py_intersection_mgr/lib/python3.8/site-packages/py_intersection_mgr/__init__.py to __init__.cpython-38.pyc
+running install_data
+creating /home/ubuntu/deis_ws/install/py_intersection_mgr/share/ament_index
+creating /home/ubuntu/deis_ws/install/py_intersection_mgr/share/ament_index/resource_index
+creating /home/ubuntu/deis_ws/install/py_intersection_mgr/share/ament_index/resource_index/packages
+copying resource/py_intersection_mgr -> /home/ubuntu/deis_ws/install/py_intersection_mgr/share/ament_index/resource_index/packages
+copying package.xml -> /home/ubuntu/deis_ws/install/py_intersection_mgr/share/py_intersection_mgr
+running install_egg_info
+Copying ../../build/py_intersection_mgr/py_intersection_mgr.egg-info to /home/ubuntu/deis_ws/install/py_intersection_mgr/lib/python3.8/site-packages/py_intersection_mgr-0.0.0-py3.8.egg-info
+running install_scripts
+Installing intersection script to /home/ubuntu/deis_ws/install/py_intersection_mgr/lib/py_intersection_mgr
+writing list of installed files to '/home/ubuntu/deis_ws/build/py_intersection_mgr/install.log'
