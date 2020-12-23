@@ -2,9 +2,6 @@
     RedBotMotors motors;
     
     RedBotEncoder encoder = RedBotEncoder(A2, 10);
-    RedBotSensor left = RedBotSensor(A3);   // initialize a left sensor object on A3
-    RedBotSensor right = RedBotSensor(A7);   // initialize a right sensor object on A3
-    RedBotSensor middle = RedBotSensor(A6);   // initialize a middle sensor object on A3
     
     int TRIG_PIN = A1;
     int ECHO_PIN = A0;
@@ -21,9 +18,6 @@
     int EV = 10;
     int RV = 7;
     int bump = 10;
-    long lineCounter = 0;
-    //long lineRCounter = 0;
-    //long lineLCounter = 0;
     int offsetGPSEV = 7;
     int offsetGPSRV = 7;
 
@@ -42,7 +36,6 @@
     
     void loop(void)
     {
-      //driveStraight(12, 150); 
       // set the power for left & right motors on button press
       if (Serial.available() > 0)
       {
@@ -67,7 +60,6 @@
     void driveStraight(float distance, int offsetL, int offsetGPS)
     {
       int turnSpeed = 75;
-      //float offsetL = (20-(offsetP * motorPower));
       char dataint;
       
       int LINETHRESHOLD = 980;
@@ -95,10 +87,8 @@
     
     
       encoder.clearEnc(BOTH);    // clear the encoder count
-      //delay(100);  // short delay before starting the motors.
       
       motors.drive(motorPower);  // start motors
-      //motors.leftDrive(motorPower + 50); 
     
       while (rCount < targetCount)
       {
@@ -130,7 +120,6 @@
           leftPower = leftPower + offset;  
           rightPower = rightPower - offset;
         }
-        //delay(50);  // short delay to give motors a chance to respond.
 
        if (Serial.available() > 0){
         dataint = Serial.read();
@@ -191,32 +180,10 @@
           }
          }
        }
-       /*if(left.read() > LINETHRESHOLD && lineCounter > 40){ // && lineLCounter > 3
-          leftPower = motorPower + offsetL;
-          rightPower = motorPower - offsetL;
-          //lineLCounter = 0;
-        }
-        if(right.read() > LINETHRESHOLD && lineCounter > 40){ //&& lineRCounter > 3
-          leftPower = motorPower - offsetL;
-          rightPower = motorPower + offsetL;
-          //lineRCounter = 0;
-        }      
-        if(middle.read() > LINETHRESHOLD){
-          motors.leftDrive(motorPower);
-          motors.rightDrive(motorPower);
-          lineCounter = 0;
-          //delay(100-(motorPower*0.5));
-        }
-        lineCounter = lineCounter + 1;*/
-        //lineRCounter = lineRCounter + 1;
-        //lineLCounter = lineLCounter + 1;
-        
         float ultraDistance = measureDistance();
         if(ultraDistance < bump){
           leftPower = 0;
           rightPower = 0;
-          /*motors.brake();
-          break;*/
         }
         if(ultraDistance < UltrasonicThreshold && ultraDistance < UltrasonicOld){ // if detect someting is slower in a distance of UltrasonicThreshold slows moters
           UltrasonicOld = ultraDistance;
